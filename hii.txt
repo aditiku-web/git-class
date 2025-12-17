@@ -1,1 +1,635 @@
-hii hello hii bye
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Techserve Nexus - Empowering Businesses</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background: #f8f9fa;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2d3748;
+        }
+
+        .logo span {
+            font-style: italic;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: #5fdb7b;
+            background: #e8f5e9;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 5rem 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: 100px;
+            width: 150px;
+            height: 150px;
+            background: #5fdb7b;
+            border-radius: 50%;
+            opacity: 0.7;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: #1a202c;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #4a5568;
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.9rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 500;
+        }
+
+        .btn-primary {
+            background: #5fdb7b;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #4bc464;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(95, 219, 123, 0.3);
+        }
+
+        .btn-secondary {
+            background: #e2e8f0;
+            color: #2d3748;
+        }
+
+        .btn-secondary:hover {
+            background: #cbd5e0;
+        }
+
+        .hero-image {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 5%;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            color: #2d3748;
+            margin-bottom: 1rem;
+        }
+
+        .section-header h3 {
+            font-size: 1.8rem;
+            color: #4a5568;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: #718096;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-color: #5fdb7b;
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: #5fdb7b;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .service-card h4 {
+            font-size: 1.4rem;
+            color: #2d3748;
+            margin-bottom: 0.8rem;
+        }
+
+        .service-card p {
+            color: #718096;
+            font-size: 1rem;
+        }
+
+        /* Works Section */
+        .works {
+            padding: 5rem 5%;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .works-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .works-content {
+            flex: 1;
+        }
+
+        .works-content h2 {
+            font-size: 3.5rem;
+            color: #2d3748;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .works-content p {
+            font-size: 1.1rem;
+            color: #4a5568;
+            margin-bottom: 2rem;
+        }
+
+        .works-grid {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .work-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 150px;
+            transition: all 0.3s;
+        }
+
+        .work-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-color: #5fdb7b;
+        }
+
+        .work-card img {
+            max-width: 100%;
+            max-height: 80px;
+            object-fit: contain;
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 5%;
+            background: white;
+        }
+
+        .about-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .about-content h2 {
+            font-size: 3rem;
+            color: #2d3748;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .about-content h3 {
+            font-size: 2rem;
+            color: #2d3748;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            color: #4a5568;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            flex: 1;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 5%;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .features-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features-image {
+            flex: 1;
+        }
+
+        .features-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .features-content {
+            flex: 1;
+        }
+
+        .features-content h2 {
+            font-size: 3rem;
+            color: #2d3748;
+            margin-bottom: 1rem;
+        }
+
+        .features-content h3 {
+            font-size: 1.8rem;
+            color: #2d3748;
+            margin-bottom: 1.5rem;
+        }
+
+        .features-content p {
+            font-size: 1.1rem;
+            color: #4a5568;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 5rem 5%;
+            background: white;
+        }
+
+        .cta-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cta-content {
+            flex: 1;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            color: #2d3748;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .cta-content p {
+            font-size: 1.1rem;
+            color: #4a5568;
+            line-height: 1.8;
+        }
+
+        .testimonial {
+            flex: 1;
+            background: #f8f9fa;
+            padding: 3rem;
+            border-radius: 15px;
+            border: 2px solid #e2e8f0;
+        }
+
+        .testimonial p {
+            font-size: 1.2rem;
+            color: #2d3748;
+            font-style: italic;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            font-size: 1.5rem;
+            color: #718096;
+        }
+
+        /* Footer */
+        footer {
+            background: #2d3748;
+            color: white;
+            padding: 2rem 5%;
+            text-align: center;
+        }
+
+        footer p {
+            color: #cbd5e0;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero, .works-container, .about-container, .features-container, .cta-container {
+                flex-direction: column;
+            }
+
+            .hero h1, .works-content h2 {
+                font-size: 2.5rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .services-grid, .works-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .works-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo"><span>Tech</span>serve Nexus</div>
+        <ul>
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#works">Works</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contacts">Contacts</a></li>
+            <li><a href="#career">Career</a></li>
+            <li><a href="#event">Event</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Empowering businesses with Innovative Digital Solutions</h1>
+            <p>Techserve offers customized digital solutions to optimize your online presence and drive business growth</p>
+            <div class="hero-buttons">
+                <a href="#about" class="btn btn-primary">About</a>
+                <a href="#services" class="btn btn-secondary">Services</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://i.ibb.co/G4FpDmd5/img1.jpg" alt="Techserve Nexus Banner">
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-header">
+            <h2>Services</h2>
+            <h3>Our Tech Solutions</h3>
+            <p>At Techserve, we offer a wide range of innovative tech solutions designed to meet your unique business needs. Our client-centric approach ensures that each solution is tailored to optimize your digital presence and drive growth.</p>
+            <a href="#" class="btn btn-primary">Explore Our Services</a>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">💻</div>
+                <h4>Web Development</h4>
+                <p>Custom websites tailored to your business needs.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <h4>App Development</h4>
+                <p>Innovative mobile apps for iOS and Android.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎨</div>
+                <h4>UI/UX Design</h4>
+                <p>User-centric designs for optimal experiences.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎥</div>
+                <h4>Video Production</h4>
+                <p>Professional video shooting and editing.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📢</div>
+                <h4>Digital Marketing</h4>
+                <p>Strategies to boost your online presence.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h4>Maintenance & Support</h4>
+                <p>Ongoing updates, bug fixes, and security for your projects.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Works Section -->
+    <section class="works" id="works">
+        <div class="works-container">
+            <div class="works-content">
+                <h2>Where Ideas Meet Creativity</h2>
+                <p>Explore our collection of projects that merge innovation, creativity, and function.</p>
+                <a href="#" class="btn btn-primary">Explore</a>
+            </div>
+            <div class="works-grid">
+                <div class="work-card">
+                    <img src="https://i.ibb.co/3yZgpZCK/zipper.jpg" alt="Zipper">
+                </div>
+                <div class="work-card">
+                    <img src="https://i.ibb.co/3mM5K9CF/PRINT.jpg" alt="PrintMine">
+                </div>
+                <div class="work-card">
+                    <img src="https://i.ibb.co/Xr9N9X9x/KESHARI-TRAVELS.jpg" alt="Keshari Travels">
+                </div>
+                <div class="work-card">
+                    <img src="https://i.ibb.co/HpMDM9SF/AGAMING-INNOVATION.jpg" alt="Gaming Innovation">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-container">
+            <div class="about-content">
+                <h2>Your Digital Growth Partner</h2>
+                <h3>Techserve</h3>
+                <p>Techserve is more than a technology provider – we're your strategic partner in achieving sustainable growth. We combine deep industry expertise with a collaborative approach to deliver impactful solutions that drive real results for your business.</p>
+                <a href="#" class="btn btn-primary">Know More</a>
+            </div>
+            <div class="about-image">
+                 <img src="https://i.ibb.co/fVbyCbgk/tech.jpg" alt="tech" border="0">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="features-container">
+            <div class="features-image">
+                <img src="https://i.ibb.co/99LNYbZM/FEATURES.jpg" alt="FEATURES" border="0">
+            </div>
+            <div class="features-content">
+                <h2>Features</h2>
+                <h3>Driving Your Business Growth with Innovative Solutions</h3>
+                <p>We empower your business to thrive in the digital age. Our cutting-edge technology and expert team deliver tailored solutions that drive tangible results. From boosting your online presence with strategic digital marketing to streamlining your operations with custom web development, we've got the expertise to help you achieve your goals.</p>
+                <a href="#" class="btn btn-primary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="contacts">
+        <div class="cta-container">
+            <div class="cta-content">
+                <h2>Ready to Elevate Your Digital Strategy?</h2>
+                <p>Join hands with Techserve to drive innovation and growth with cutting-edge solutions tailored for your business. Let us help you stand out in the digital landscape.</p>
+            </div>
+            <div class="testimonial">
+                <p>Techserve completely revolutionized our online presence. Their expertise and innovative approach enabled us to achieve remarkable results.</p>
+                <div class="testimonial-author">— 😊 👍</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Techserve Nexus. All rights reserved.</p>
+    </footer>
+</body>
+</html>
